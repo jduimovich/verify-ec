@@ -1,4 +1,5 @@
 
+START_DIR=$(pwd)
 rm -rf gitops-repo
 git clone $1 gitops-repo
 
@@ -26,7 +27,8 @@ source $SETUP_ENV
 
 COUNT=0
 
-function cleanup () { 
+function cleanup () {
+    cd $START_DIR
     rm -rf gitops-repo
     rm -rf jenkins-lib
     rm -rf results 
@@ -49,10 +51,11 @@ function run () {
         exit 1
     fi
 }
-cleanup
 
 run  "rhtap/init.sh"  
 run  "rhtap/gather-deploy-images.sh"  
 run  "rhtap/verify-enterprise-contract.sh"   
 
 tree ./results 
+
+cleanup
