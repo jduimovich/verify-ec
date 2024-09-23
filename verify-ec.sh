@@ -57,7 +57,7 @@ function run () {
     printf "\n" 
     if [ $ERR != 0 ]; then
         echo "Fatal Error code for $1 = $ERR" 
-        #cleanup
+        cleanup
         exit 1
     fi
 }
@@ -68,4 +68,4 @@ run  "rhtap/verify-enterprise-contract.sh"
 
 tree ./results 
 
-#cleanup
+cleanup
