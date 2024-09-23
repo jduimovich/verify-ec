@@ -9,5 +9,10 @@ Local env will need the environment variables for COSIGN_PUBLIC (this will be ch
 
 ## Usage
 ```
+
+bash verify-ec.sh YOUR_REPO_HERE
+
+example 
+
 bash verify-ec.sh https://github.com/northdepot/demo-go-jenkins-gitops
 ```
