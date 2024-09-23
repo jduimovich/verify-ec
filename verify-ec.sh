@@ -20,8 +20,10 @@ cp jenkins-lib/resources/verify-enterprise-contract.sh gitops-repo/rhtap
 
 echo "Used the same tasks from Jenkins to validate locally"
 cd gitops-repo
+export COSIGN_SECRET_PASSWORD="dummy"
+export COSIGN_SECRET_KEY="dummy"
 REQUIRED_ENV="MY_QUAY_USER COSIGN_SECRET_PASSWORD COSIGN_SECRET_KEY COSIGN_PUBLIC_KEY"
-REQUIRED_BINARY="tree cosign "
+REQUIRED_BINARY="tree cosign ec "
 rhtap/verify-deps-exist "$REQUIRED_ENV" "$REQUIRED_BINARY" 
 ERR=$?
 echo "Dependency Error $1 = $ERR" 
